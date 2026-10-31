@@ -4,7 +4,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Único lugar que conoce qué tipos concretos se cargan al iniciar. */
+
 public final class CatalogoInicial {
     private CatalogoInicial() {
         throw new AssertionError("Clase de utilidad: no se instancia.");

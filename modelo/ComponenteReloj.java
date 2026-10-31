@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-/** Informativo: se actualiza por tiempo, pero no acepta acciones del usuario. */
+
 public class ComponenteReloj extends ComponenteBase {
     private final ZoneId zonaHoraria;
     private final DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -40,10 +40,11 @@ public class ComponenteReloj extends ComponenteBase {
         if (panel == null) {
             panel = crearPanel();
             etiqueta = new JLabel("", SwingConstants.CENTER);
-            etiqueta.setFont(etiqueta.getFont().deriveFont(Font.BOLD, 28f));
+            etiqueta.setFont(etiqueta.getFont().deriveFont(Font.PLAIN, 38f));
+            etiqueta.setForeground(EstiloVisual.TEXTO);
             actualizarHora();
             temporizador = new Timer(1000, evento -> actualizarHora());
-            // Se detiene al ocultarse y se reanuda al volver a mostrarse.
+            
             panel.addHierarchyListener(evento -> {
                 if ((evento.getChangeFlags() & HierarchyEvent.SHOWING_CHANGED) != 0) {
                     if (panel.isShowing()) {

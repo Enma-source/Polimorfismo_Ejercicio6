@@ -50,9 +50,10 @@ public class ComponenteAlerta extends ComponenteBase implements Interactivo {
             area.setEditable(false);
             area.setLineWrap(true);
             area.setWrapStyleWord(true);
-            boton = new JButton("Marcar como leída");
+            boton = EstiloVisual.boton("Marcar como leída", java.awt.Color.WHITE);
             boton.addActionListener(evento -> interactuar());
-            panel.add(new JScrollPane(area), BorderLayout.CENTER);
+            EstiloVisual.prepararTexto(area, panel.getBackground());
+            panel.add(EstiloVisual.desplazar(area), BorderLayout.CENTER);
             panel.add(boton, BorderLayout.SOUTH);
             actualizarVista();
         }

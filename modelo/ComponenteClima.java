@@ -42,8 +42,8 @@ public class ComponenteClima extends ComponenteBase implements Interactivo {
     public JComponent obtenerVista() {
         if (panel == null) {
             panel = crearPanel();
-            etiqueta = new JLabel(obtenerContenido());
-            JButton boton = new JButton("Cambiar °C / °F");
+            etiqueta = EstiloVisual.etiqueta(obtenerContenido(), 15, EstiloVisual.TEXTO);
+            JButton boton = EstiloVisual.boton("Cambiar °C / °F", java.awt.Color.WHITE);
             boton.addActionListener(evento -> interactuar());
             panel.add(etiqueta, BorderLayout.CENTER);
             panel.add(boton, BorderLayout.SOUTH);

@@ -31,7 +31,8 @@ public class ComponenteFrase extends ComponenteBase {
             area.setEditable(false);
             area.setLineWrap(true);
             area.setWrapStyleWord(true);
-            panel.add(new JScrollPane(area), BorderLayout.CENTER);
+            EstiloVisual.prepararTexto(area, panel.getBackground());
+            panel.add(EstiloVisual.desplazar(area), BorderLayout.CENTER);
         }
         return panel;
     }

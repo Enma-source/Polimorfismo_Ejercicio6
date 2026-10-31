@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-/** Gestiona una sola lista principal, sin conocer clases concretas. */
+
 public class PanelControl {
     private final List<Renderizable> componentes = new ArrayList<>();
 
@@ -26,7 +26,7 @@ public class PanelControl {
     }
 
     public List<Renderizable> obtenerComponentes() {
-        // Se protege la estructura de la lista; los widgets conservan su identidad.
+        
         return Collections.unmodifiableList(new ArrayList<>(componentes));
     }
 

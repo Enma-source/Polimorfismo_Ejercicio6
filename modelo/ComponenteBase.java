@@ -54,14 +54,17 @@ public abstract class ComponenteBase implements Renderizable {
     }
 
     protected JPanel crearPanel() {
-        JPanel panel = new JPanel(new BorderLayout(10, 10));
-        panel.setBackground(Color.WHITE);
-        panel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(new Color(210, 218, 228)),
-                BorderFactory.createEmptyBorder(14, 14, 14, 14)));
-        panel.setPreferredSize(new Dimension(310, 210));
-        JLabel encabezado = new JLabel(titulo + "  ·  " + consumoMemoriaKB + " KB");
-        encabezado.setFont(encabezado.getFont().deriveFont(Font.BOLD, 14f));
+        Color[] colores = {EstiloVisual.AZUL, EstiloVisual.MENTA,
+                EstiloVisual.DURAZNO, EstiloVisual.LILA, EstiloVisual.ROSA};
+        Color fondo = colores[((id - 1) / 2) % colores.length];
+        JPanel panel = EstiloVisual.tarjeta(fondo, 26);
+        panel.setPreferredSize(new Dimension(330, 245));
+        JPanel encabezado = new JPanel(new BorderLayout(6, 8));
+        encabezado.setOpaque(false);
+        encabezado.add(EstiloVisual.etiqueta(titulo, 16, EstiloVisual.TEXTO),
+                BorderLayout.NORTH);
+        encabezado.add(EstiloVisual.etiqueta("ID " + id + "  ·  "
+                + consumoMemoriaKB + " KB", 12, EstiloVisual.SUAVE), BorderLayout.SOUTH);
         panel.add(encabezado, BorderLayout.NORTH);
         return panel;
     }
